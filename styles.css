@@ -1,0 +1,504 @@
+body {
+  position: absolute;
+  bottom: 0;
+  right: 14px;
+  width: 402px;
+  height: 874px;
+  background: #191818;
+  color: #fff;
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0; padding: 0;
+  overflow: hidden;
+}
+
+.screen {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Анимационный оверлей */
+#animationOverlay {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+#animationGif {
+  max-width: 100%;
+  max-height: 100%;
+}
+/* Стиль для затемненного фона */
+#mainScreen.blurred {
+  filter: blur(5px);
+}
+
+.loading{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto; 
+    border-radius: 25px 25px 0 0;
+    background-image: url('resources/Blur.png');
+}
+
+.loading button{
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    background: none;
+    border: none;
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url('resources/mainbg.svg');
+}
+
+.head{
+    display: flex;
+    margin-top: 82px;
+    gap: 16px;
+}
+
+
+.user{
+    width: 290px;
+    height: 138px;
+    display: flex;
+    gap: 16px;
+    background-image: url('resources/userbg.svg');
+}
+
+.user .avatar{
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.user .user_info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0 20px 0;
+}
+
+.user_info .user_hp{
+    width: 148px;
+    height: 24px;
+    text-align: center;
+    padding-top: 6px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    color: #D39A16;
+    font-weight: 600;
+    letter-spacing: 4%;
+    background-image: url('resources/Back.png');
+}
+
+.user_info .MORI_ART{
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 200;
+    color: #808080;
+    letter-spacing: 2px;
+}
+
+.user_info .user_name{
+    font-family: 'Playfair Display';
+    font-size: 24px;
+    font-weight: 400;
+    color: #D39A16;
+    letter-spacing: 3px;
+}
+
+.stat{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 16px 0 16px 0;
+    font-family: 'Inter', sans-serif;
+    color: #D39A16;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.stat .img{
+    width: 15px;
+    text-align: center;
+}
+
+.stat > *{
+    display: flex;
+    gap: 8px;
+}
+
+
+.fight_btn{
+    width: 430px;
+    height: 435px;
+    background-image: url('resources/FIGHT2.png');
+}
+
+
+.foot{
+    background-image: url('resources/Back.svg');
+    
+}
+
+.foot nav{
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #D39A16;
+    margin-bottom: -px;
+}
+
+.foot item{
+    width: 80px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.foot .ok{
+    width: 50px;
+    height: 60px;
+}
+
+.foot img{
+    width: 60px;
+}
+
+.FIGHT{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url('resources/fightbg.png');
+}
+
+.summary{
+    margin-top: 50px;
+    height: 201px;
+    background-image: url('resources/LOG.png');
+    text-align: center;
+}
+
+.summary span{
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #D39A16;
+    letter-spacing: 1px;
+}
+
+.fight_info{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.f_i_item{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-left: 15px;
+}
+
+.fight_info .right{
+    text-align: end;
+    align-items: end;
+    margin-right: 15px;
+}
+
+.fight_info .right .user_hp{
+    margin-right: -15px;
+    background-image: url('resources/HP\ Bar.png');
+}
+
+.one .fight_info .right .user_hp{
+    background-image: url('resources/HP\ Bar.png');
+}
+
+.one .fight_info .user_hp{
+    background-image: url('resources/HP\ Bar1.png');
+}
+
+.two .fight_info .right .user_hp{
+    background-image: url('resources/HP\ Ba3r.png');
+}
+
+.two .fight_info .user_hp{
+    background-image: url('resources/HP\ Bar1.png');
+}
+
+.three .fight_info .right .user_hp{
+    background-image: url('resources/HP\ Ba5r.png');
+}
+
+.three .fight_info .user_hp{
+    background-image: url('resources/HP\ Ba4r.png');
+}
+
+.four .fight_info .right .user_hp{
+    background-image: url('resources/HP\ Ba5r.png');
+}
+
+.four .fight_info .user_hp{
+    background-image: url('resources/HP\ 6Bar.png');
+}
+
+.five .fight_info .right .user_hp{
+    background-image: url('resources/HP\ 8Bar.png');
+}
+
+.five .fight_info .user_hp{
+    background-image: url('resources/HP\ B7ar.png');
+}
+
+.fight_info .user_hp{
+    margin-left: -15px;
+    width: 193px;
+    height: 30px;
+    text-align: center;
+    padding-top: 6px;
+    border-radius: 4px;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    color: #D39A16;
+    font-weight: 600;
+    letter-spacing: 4%;
+}
+
+.f_i_user_name{
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #D39A16;
+}
+
+
+
+.fight_options{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fight_options .right{
+    width: 130px;
+    margin-left: 0;
+    margin-right: 20px;
+    background-image: url('resources/Villian.svg');
+}
+
+.f_o_btns{
+    width: 130px;
+    height: 256px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-left: 30px;
+    background-image: url('resources/Hero.svg');
+    background-position:center;
+    background-repeat: no-repeat;
+    align-items: center;
+    padding-top: 44px;
+}
+
+.f_o_btns button{
+    width: 135px;
+    height: 40px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    background: #1D1D1D;
+    border: none;
+    color: #D39A16;
+    font-weight: 600;
+    border-radius: 6px;
+    font-size: 16px;
+    padding: 0 20px 0 20px;
+}
+
+.f_o_images{
+    margin-top: 44px;
+    text-align: center;
+}
+
+.f_o_btns span{
+    width: 73px;
+    text-align: center;
+} 
+
+.move_fihish_btn{
+    width: 258px;
+    height: 49px;
+    border: none;
+    border-radius: 8px;
+    color: #D39A16;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 1px;
+    background-image: url('resources/btnbg.png');
+    margin: 0 auto 50px;
+}
+
+
+.fight_finish{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    color: #D39A16;
+    background-image: url('resources/fight_finishbg.png');
+}
+
+.fight_finish h1{
+    margin-top: 330px;
+    font-family: Playfair Display;
+    font-weight: 400;
+    font-size: 48px;
+    letter-spacing: 1.5px;
+}
+
+.fight_finish h2{
+    font-family: Inter, sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+
+.fight-stat{
+    width: 185px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 16px 0 16px 0;
+    font-family: 'Inter', sans-serif;
+    color: #D39A16;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 1.5px;
+    margin-top: -15px;
+}
+
+.fight-stat img{
+    height: 24px;
+    width: 24px
+}
+
+.fight-stat .MORI_balance, .dollars_balance, .energy{
+    display: flex;
+    gap: 20px;
+}
+
+.to_main_btn{
+    width: 260px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    color: #D39A16;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 1px;
+    background-image: url('resources/btnbg.png');
+    padding-top: 12px;
+    margin-top: 30px;
+}
+
+
+.prefight_window{
+    width: 100%;
+    height: 368px;
+    background-image: url('resources/prefightbg.png');
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.prefight_window h2{
+    margin-top: 32px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: 4%;
+    color: #D39A16;
+}
+
+.fight_types_btns{
+    display: flex;
+    gap: 16px;
+}
+
+.fight_types_btns button{
+    width: 179px;
+    height: 49px;
+    border: none;
+    border-radius: 8px;
+    color: #D39A16;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 1px;
+    background-image: url('resources/prefight_btn.png');
+    padding-top: 8px;
+    margin-top: 30px;
+}
+
+.ter_wars_btn{
+    width: 370px;
+    height: 49px;
+    border: none;
+    border-radius: 8px;
+    color: black;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 1px;
+    padding-top: 8px;
+    margin-top: 30px;
+    background-image: url('resources/terbtn.png');
+    font-family: Inter;
+    filter: grayscale(1);
+}
+
+.prefight_window .timer{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 100%;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #808080;
+}
+
+
+
+
+
+

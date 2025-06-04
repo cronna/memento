@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=402, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>MEMENTO $MORI</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .screen {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    #animationOverlay {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #animationGif {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    
+    .f_o_btns button.selected {
+      border: 3px solid #D39A16 !important;
+    }
+    
+    #mainScreen.blurred {
+      filter: blur(5px);
+    }
+  </style>
+</head>
+<body>
+  <div id="animationOverlay">
+    <img id="animationGif" src="" alt="Animation">
+  </div>
+  
+  <div class="screen" id="loadingScreen">
+    <div class="loading">
+      <button id="startButton"><img src="resources/MORI.svg" alt=""></button>
+    </div>
+  </div>
+  
+  <div class="screen" id="mainScreen">
+    <div class="main">
+      <div class="head">
+        <div class="user">
+          <div class="avatar"><img src="resources/user.svg" alt=""></div>
+          <div class="user_info">
+            <div class="user_hp"><span>160 HP</span></div>
+            <div class="MORI_ART">$MORI ART</div>
+            <div class="user_name">ВОДИЛА</div>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="MORI_balance">
+            <div class="img"><img src="resources/minimori.svg" alt=""></div>
+            <div class="balance">747</div>
+          </div>
+          <div class="dollars_balance">
+            <div class="img"><img src="resources/$.svg" alt=""></div>
+            <div class="balance">2474</div>
+          </div>
+          <div class="energy">
+            <div class="img"><img src="resources/energy.svg" alt=""></div>
+            <div class="balance">6/9</div>
+          </div>
+        </div>
+      </div>
+      <div class="fight_btn" id="fightButton"></div>
+      <div class="foot">
+        <nav>
+          <item>
+            <img src="resources/Profile.svg" alt="">
+            <span>ПРОФИЛЬ</span>
+          </item>
+          <item>
+            <img src="resources/Mobile.svg" alt="">
+            <span>ДВИЖУХА</span>
+          </item>
+          <item>
+            <img class="ok" src="resources/Map.svg" alt="">
+            <span>ТЕРРИТОРИЯ</span>
+          </item>
+          <item>
+            <img src="resources/SYNCICATE.svg" alt="">
+            <span>СИНДИКАТ</span>
+          </item>
+          <item>
+            <img class="ok" src="resources/Shop.svg" alt="">
+            <span>БАРЫГА</span>
+          </item>
+        </nav>
+      </div>
+    </div>
+  </div>
+  
+  <div class="screen" id="prefightScreen">
+    <div class="prefight_window">
+      <h2>ВЫБЕРИТЕ ТИП БОЯ</h2>
+      <div class="fight_types_btns">
+        <button id="pveButton">PVE</button>
+        <button id="pvpButton">PVP</button>
+      </div>
+      <h2>ВЫСШАЯ ЛИГА</h2>
+      <div class="ter_wars_btn"></div>
+      <div class="timer">
+        <span>ОТКРОЕТСЯ ЧЕРЕЗ 7:27:44</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="screen" id="fightOneScreen">
+    <div class="FIGHT one">
+      <div class="summary">
+        <span>СВОДКА БОЯ</span>
+        <div class=""></div>
+      </div>
+      <div class="fight_info">
+        <div class="f_i_item">
+          <div class="user_hp"></div>
+          <div class="f_i_user_name">ART IS STUDIO</div>
+          <div class="f_i_images"><img src="resources/Buff.svg" alt=""></div>
+        </div>
+        <div class="f_i_item right">
+          <div class="user_hp"></div>
+          <div class="f_i_user_name">БЫК</div>
+          <div class="f_i_images"><img src="resources/buff_r.svg" alt=""></div>
+        </div>
+      </div>
+      <div class="fight_options">
+        <div class="f_o_btns">
+          <button><img src="resources/Vector (3).svg" alt=""><span>ГОЛОВА</span></button>
+          <button><img src="resources/Vector (3).svg" alt=""><span>ГРУДЬ</span></button>
+          <button><img src="resources/Vector (3).svg" alt=""><span>ПАХ</span></button>
+          <button><img src="resources/Vector (3).svg" alt=""><span>НОГИ</span></button>
+        </div>
+        <div class="f_o_images">
+          <div class="f_o_img"><img src="resources/Distance.svg" alt=""></div>
+          <div class="f_o_img" style="margin-top: 15px;"><img src="resources/steps.svg" alt=""></div>
+          <div class="f_o_img"><img src="resources/knife.svg" alt=""></div>
+          <div class="f_o_img"><img src="resources/mina.svg" alt=""></div>
+        </div>
+        <div class="f_o_btns right">
+          <button><img src="resources/Vector (4).svg" alt=""><span>ГОЛОВА</span></button>
+          <button><img src="resources/Vector (4).svg" alt=""><span>ГРУДЬ</span></button>
+          <button><img src="resources/Vector (4).svg" alt=""><span>ПАХ</span></button>
+          <button><img src="resources/Vector (4).svg" alt=""><span>НОГИ</span></button>
+        </div>
+      </div>
+      <button class="move_fihish_btn">ЗАКОНЧИТЬ ХОД</button>
+    </div>
+  </div>
+  
+  <div class="screen" id="fightTwoScreen">
+    <div class="FIGHT two">
+      <div class="summary">
+        <span>СВОДКА БОЯ</span>
+        <div class=""></div>
+      </div>
+      <div class="fight_info">
+        <div class="f_i_item">
+          <div class="user_hp"></div>
+          <div class="f_i_user_name">ART IS STUDIO</div>
+          <div class="f_i_images"><img src="resources/Buff.svg" alt=""></div>
+        </div>
+        <div class="f_i_item right">
+          <div class="user_hp"></div>
+          <div class="f_i_user_name">БЫК</div>
+          <div class="f_i_images"><img src="resources/buff_r.svg" alt=""></div>
+        </div>
+      </div>
+      <div class="fight_options">
+        <div class="f_o_btns">
+          <button><img src="resources/Vector (3).svg" alt=""><span>ГОЛОВА</span></button>
+          <button><img src="resources/Vector (3).svg" alt=""><span>ГРУДЬ</span></button>
+          <button><img src="resources/Vector (3).svg" alt=""><span>ПАХ</span></button>
+          <button><img src="resources/Vector (3).svg" alt=""><span>НОГИ</span></button>
+        </div>
+        <div class="f_o_images">
+          <div class="f_o_img"><img src="resources/Distance2.png" alt=""></div>
+          <div class="f_o_img" style="margin-top: 15px;"><img src="resources/steps.svg" alt=""></div>
+          <div class="f_o_img"><img src="resources/knife.svg" alt=""></div>
+          <div class="f_o_img"><img src="resources/mina.svg" alt=""></div>
+        </div>
+        <div class="f_o_btns right">
+          <button><img src="resources/Vector (4).svg" alt=""><span>ГОЛОВА</span></button>
+          <button><img src="resources/Vector (4).svg" alt=""><span>ГРУДЬ</span></button>
+          <button><img src="resources/Vector (4).svg" alt=""><span>ПАХ</span></button>
+          <button><img src="resources/Vector (4).svg" alt=""><span>НОГИ</span></button>
+        </div>
+      </div>
+      <button class="move_fihish_btn">ЗАКОНЧИТЬ ХОД</button>
+    </div>
+  </div>
+  
+  <div class="screen" id="fightThreeScreen">
+    <div class="FIGHT three">
+      <div class="summary">
+        <span>СВОДКА БОЯ</span>
+        <div class=""></div>
+      </div>
+      <div class="fight_info">
+        <div class="f_i_item">
+          <div class="user_hp"></div>
+          <div class="f_i_user_name">ART IS STUDIO</div>
+          <div class="f_i_images"><img src="resources/Buff.svg" alt=""></div>
+        </div>
+        <div class="f_i_item right">
+          <div class="user_hp"></div>
+          <div class="f_i_user_name">БЫК</div>
+          <div class="f_i_images"><img src="resources/buff_r.svg" alt=""></div>
+        </div>
+      </div>
+      <div class="fight_options">
+        <div class="f_o_btns">
+          <button><img src="resources/Vector (3).svg" alt=""><span>ГОЛОВА</span></button>
+          <button><img src="resources/Vector (3).svg" alt=""><span>ГРУДЬ</span></button>
+          <button><img src="resources/Vector (3).svg" alt=""><span>ПАХ</span></button>
+          <button><img src="resources/Vector (3).svg" alt=""><span>НОГИ</span></button>
+        </div>
+        <div class="f_o_images">
+          <div class="f_o_img"><img src="resources/Distance3.png" alt=""></div>
+          <div class="f_o_img" style="margin-top: 15px;"><img src="resources/steps.svg" alt=""></div>
+          <div class="f_o_img"><img src="resources/knife.svg" alt=""></div>
+          <div class="f_o_img"><img src="resources/mina.svg" alt=""></div>
+        </div>
+        <div class="f_o_btns right">
+          <button><img src="resources/Vector (4).svg" alt=""><span>ГОЛОВА</span></button>
+          <button><img src="resources/Vector (4).svg" alt=""><span>ГРУДЬ</span></button>
+          <button><img src="resources/Vector (4).svg" alt=""><span>ПАХ</span></button>
+          <button><img src="resources/Vector (4).svg" alt=""><span>НОГИ</span></button>
+        </div>
+      </div>
+      <button class="move_fihish_btn">ЗАКОНЧИТЬ ХОД</button>
+    </div>
+  </div>
+  
+  <div class="screen" id="fightFourScreen">
+    <div class="FIGHT four">
+      <div class="summary">
+        <span>СВОДКА БОЯ</span>
+        <div class=""></div>
+      </div>
+      <div class="fight_info">
+        <div class="f_i_item">
+          <div class="user_hp"></div>
+          <div class="f_i_user_name">ART IS STUDIO</div>
+          <div class="f_i_images"><img src="resources/Buff.svg" alt=""></div>
+        </div>
+        <div class="f_i_item right">
+          <div class="user_hp"></div>
+          <div class="f_i_user_name">БЫК</div>
+          <div class="f_i_images"><img src="resources/buff_r.svg" alt=""></div>
+        </div>
+      </div>
+      <div class="fight_options">
+        <div class="f_o_btns">
+          <button><img src="resources/Vector (3).svg" alt=""><span>ГОЛОВА</span></button>
+          <button><img src="resources/Vector (3).svg" alt=""><span>ГРУДЬ</span></button>
+          <button><img src="resources/Vector (3).svg" alt=""><span>ПАХ</span></button>
+          <button><img src="resources/Vector (3).svg" alt=""><span>НОГИ</span></button>
+        </div>
+        <div class="f_o_images">
+          <div class="f_o_img"><img src="resources/Distance4.png" alt=""></div>
+          <div class="f_o_img" style="margin-top: 15px;"><img src="resources/steps.svg" alt=""></div>
+          <div class="f_o_img"><img src="resources/knife.svg" alt=""></div>
+          <div class="f_o_img"><img src="resources/mina.svg" alt=""></div>
+        </div>
+        <div class="f_o_btns right">
+          <button><img src="resources/Vector (4).svg" alt=""><span>ГОЛОВА</span></button>
+          <button><img src="resources/Vector (4).svg" alt=""><span>ГРУДЬ</span></button>
+          <button><img src="resources/Vector (4).svg" alt=""><span>ПАХ</span></button>
+          <button><img src="resources/Vector (4).svg" alt=""><span>НОГИ</span></button>
+        </div>
+      </div>
+      <button class="move_fihish_btn">ЗАКОНЧИТЬ ХОД</button>
+    </div>
+  </div>
+  
+  <div class="screen" id="fightFiveScreen">
+    <div class="FIGHT five">
+      <div class="summary">
+        <span>СВОДКА БОЯ</span>
+        <div class=""></div>
+      </div>
+      <div class="fight_info">
+        <div class="f_i_item">
+          <div class="user_hp"></div>
+          <div class="f_i_user_name">ART IS STUDIO</div>
+          <div class="f_i_images"><img src="resources/Buff.svg" alt=""></div>
+        </div>
+        <div class="f_i_item right">
+          <div class="user_hp"></div>
+          <div class="f_i_user_name">БЫК</div>
+          <div class="f_i_images"><img src="resources/buff_r.svg" alt=""></div>
+        </div>
+      </div>
+      <div class="fight_options">
+        <div class="f_o_btns"></div>
+        <div class="f_o_images">
+          <div class="f_o_img"></div>
+          <div class="f_o_img" style="margin-top: 15px;"></div>
+          <div class="f_o_img"></div>
+          <div class="f_o_img"></div>
+        </div>
+        <div class="f_o_btns right"></div>
+      </div>
+      <button class="move_fihish_btn">ЗАКОНЧИТЬ ХОД</button>
+    </div>
+  </div>
+  
+  <div class="screen" id="finishScreen">
+    <div class="fight_finish">
+      <h1>VICTORY</h1>
+      <h2>ВЫ ПОЛУЧАЕТЕ:</h2>
+      <div class="stat fight-stat">
+        <div class="MORI_balance">
+          <div class="img"><img src="resources/minimori.svg" alt=""></div>
+          <div class="balance">747 $MORI</div>
+        </div>
+        <div class="dollars_balance">
+          <div class="img"><img src="resources/$.svg" alt=""></div>
+          <div class="balance">2474 БАКСОВ</div>
+        </div>
+        <div class="energy">
+          <div class="img"><img src="resources/mind.svg" alt=""></div>
+          <div class="balance">227 ОПЫТА</div>
+        </div>
+      </div>
+      <div class="to_main_btn" id="toShelterButton">В УБЕЖИЩЕ</div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const screens = {
+        loading: document.getElementById('loadingScreen'),
+        main: document.getElementById('mainScreen'),
+        prefight: document.getElementById('prefightScreen'),
+        fight1: document.getElementById('fightOneScreen'),
+        fight2: document.getElementById('fightTwoScreen'),
+        fight3: document.getElementById('fightThreeScreen'),
+        fight4: document.getElementById('fightFourScreen'),
+        fight5: document.getElementById('fightFiveScreen'),
+        finish: document.getElementById('finishScreen')
+      };
+      
+      const animationOverlay = document.getElementById('animationOverlay');
+      const animationGif = document.getElementById('animationGif');
+      
+      function showScreen(screenId) {
+        Object.values(screens).forEach(screen => {
+          screen.style.display = 'none';
+        });
+        if (screens[screenId]) {
+          screens[screenId].style.display = 'block';
+        }
+      }
+      
+      function showAnimation(gifPath, duration, nextScreen) {
+        animationGif.src = gifPath;
+        animationOverlay.style.display = 'flex';
+        
+        setTimeout(() => {
+          animationOverlay.style.display = 'none';
+          showScreen(nextScreen);
+        }, duration);
+      }
+      
+      function initBodyButtons(screenId) {
+        const screen = screens[screenId];
+        if (!screen) return;
+        
+        const buttons = screen.querySelectorAll('.f_o_btns button');
+        buttons.forEach(button => {
+          button.addEventListener('click', function() {
+            const groupButtons = this.closest('.f_o_btns').querySelectorAll('button');
+            groupButtons.forEach(btn => btn.classList.remove('selected'));
+            this.classList.add('selected');
+          });
+        });
+      }
+      
+      ['fight1', 'fight2', 'fight3', 'fight4'].forEach(screen => {
+        initBodyButtons(screen);
+      });
+      
+      document.getElementById('startButton').addEventListener('click', () => {
+        showAnimation('resources/load.gif', 2000, 'main');
+      });
+      
+      document.getElementById('fightButton').addEventListener('click', () => {
+        screens.main.classList.add('blurred');
+        screens.prefight.style.display = 'block';
+      });
+      
+      document.getElementById('pveButton').addEventListener('click', () => {
+        screens.main.classList.remove('blurred');
+        showScreen('fight1');
+      });
+      
+      document.getElementById('pvpButton').addEventListener('click', () => {
+        screens.main.classList.remove('blurred');
+        showScreen('fight1');
+      });
+      
+      screens.fight1.querySelector('.move_fihish_btn').addEventListener('click', () => {
+        showAnimation('resources/GUN.gif', 2000, 'fight2');
+      });
+      
+      screens.fight2.querySelector('.move_fihish_btn').addEventListener('click', () => {
+        showAnimation('resources/Granata.gif', 2000, 'fight3');
+      });
+      
+      screens.fight3.querySelector('.move_fihish_btn').addEventListener('click', () => {
+        showAnimation('resources/GUN.gif', 2000, 'fight4');
+      });
+      
+      screens.fight4.querySelector('.move_fihish_btn').addEventListener('click', () => {
+        showAnimation('resources/knife.gif', 2000, 'fight5');
+      });
+      
+      screens.fight5.querySelector('.move_fihish_btn').addEventListener('click', () => {
+        showScreen('finish');
+      });
+      
+      document.getElementById('toShelterButton').addEventListener('click', () => {
+        showScreen('main');
+      });
+      
+      showScreen('loading');
+    });
+  </script>
+</body>
+</html>
