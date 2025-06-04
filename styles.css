@@ -81,7 +81,7 @@ body {
     height: 138px;
     display: flex;
     gap: 16px;
-    background-image: url('resources/userbg.svg');
+    background-image: url('resources/Cell.png');
 }
 
 .user .avatar{
@@ -98,16 +98,15 @@ body {
 
 .user_info .user_hp{
     width: 148px;
-    height: 24px;
+    height: 27px;
     text-align: center;
-    padding-top: 6px;
     border-radius: 4px;
     font-family: 'Inter', sans-serif;
     font-size: 16px;
     color: #D39A16;
     font-weight: 600;
     letter-spacing: 4%;
-    background-image: url('resources/Back.png');
+    background-image: url('resources/user_hpp.png');
 }
 
 .user_info .MORI_ART{
@@ -199,6 +198,7 @@ body {
 }
 
 .summary{
+    display: block;
     margin-top: 50px;
     height: 201px;
     background-image: url('resources/LOG.png');
@@ -436,6 +436,7 @@ body {
 
 .prefight_window{
     width: 100%;
+    margin-top: 300px;
     height: 368px;
     background-image: url('resources/prefightbg.png');
     display: flex;
@@ -454,8 +455,10 @@ body {
 }
 
 .fight_types_btns{
+    margin-top: -20px;
     display: flex;
     gap: 16px;
+    margin-bottom: 30px;
 }
 
 .fight_types_btns button{
@@ -482,7 +485,7 @@ body {
     font-size: 24px;
     letter-spacing: 1px;
     padding-top: 8px;
-    margin-top: 30px;
+    margin-top: 10px;
     background-image: url('resources/terbtn.png');
     font-family: Inter;
     filter: grayscale(1);
